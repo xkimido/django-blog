@@ -1,4 +1,3 @@
-from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Post
@@ -18,6 +17,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     template_name = 'post_create.html'
     fields = ('title', 'content', 'category')
+    success_url = reverse_lazy('posts:post_list')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -27,6 +27,7 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
     model = Post
     template_name = 'post_update.html'
     fields = ('title', 'content', 'category')
+    success_url = reverse_lazy('posts:post_list')
 
 class PostDeleteView(LoginRequiredMixin, DeleteView):
     model = Post
