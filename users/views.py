@@ -4,7 +4,8 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import CreateView, UpdateView, DeleteView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import CustomUser
+from .models import CustomUser, UserProfile
+
 
 class SignUpView(CreateView):
     model = CustomUser
@@ -12,10 +13,15 @@ class SignUpView(CreateView):
     fields = ('email', 'username', 'password')
     success_url = reverse_lazy('users:login')
 
+
 class ProfileView(LoginRequiredMixin, DetailView):
     model = CustomUser
     template_name = 'profile.html'
-    context_object_name = 'user'
+    context_object_name = ''
+
+    def get_object(self, queryset=None):
+        return self.request.user.userprofile
+
 
 class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = CustomUser
@@ -28,13 +34,17 @@ class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse_lazy('users:profile', args=[self.request.user.pk])
 
+
 class ProfileDeleteView(LoginRequiredMixin, DeleteView):
     model = CustomUser
     template_name = 'profile_delete.html'
     success_url = reverse_lazy('home')
 
+
 class CustomLoginView(LoginView):
     template_name = 'login.html'
+    next_page = reverse_lazy('home')
+
 
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('home')

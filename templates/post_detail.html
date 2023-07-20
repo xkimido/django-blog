@@ -10,5 +10,6 @@
     <p>{{ post.content }}</p>
     <a href="{% url 'posts:post_update' post.pk %}">Edit</a>
     <a href="{% url 'posts:post_delete' post.pk %}">Delete</a>
+    <a href="{% url 'posts:post_list' %}">List</a>
 </body>
 </html>
