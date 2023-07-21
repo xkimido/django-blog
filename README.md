@@ -17,7 +17,7 @@
 - Packages
 ```
 asgiref==3.7.2
-Django==4.2
+Django==4.2.3
 django-autoslug==1.9.9
 django-environ==0.10.0
 django-extensions==3.2.3
