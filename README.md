@@ -114,4 +114,11 @@ tzdata==2023.3
  ┣ 📜urls.py
  ┣ 📜views.py
  ┗ 📜__init__.py
+ ┣ 📜.env
+ ┣ 📜.gitignore
+ ┣ 📜db.sqlite3
+ ┣ 📜image.png
+ ┣ 📜manage.py
+ ┣ 📜README.md
+ ┗ 📜requirements.txt
  ```
