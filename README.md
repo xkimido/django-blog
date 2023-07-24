@@ -18,14 +18,7 @@
 ```
 asgiref==3.7.2
 Django==4.2.3
-django-autoslug==1.9.9
 django-environ==0.10.0
-django-extensions==3.2.3
-graphviz==0.20.1
-Pillow==10.0.0
-pydot==1.4.2
-pydot-ng==2.0.0
-pyparsing==3.1.0
 python-decouple==3.8
 sqlparse==0.4.4
 typing_extensions==4.7.1
